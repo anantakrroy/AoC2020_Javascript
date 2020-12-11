@@ -1009,4 +1009,34 @@ function firstVulnerability() {
     }
 }
 
+// Part 1 - Find the first vulneraibility
 console.log(firstVulnerability());
+
+
+// Part 2 - Find encryption weakness of XMAS encryption
+const vulSum = firstVulnerability();
+let subArr = input.slice(0, input.indexOf(vulSum));
+// console.log(subArr[subArr.length - 1]);
+
+function encrypWeakness() {
+    for (let i = 0; i < subArr.length; i++) {
+        let sum = 0;
+        let contArr = [];
+        for (let j = i; j < subArr.length; j++) {
+            if (sum < vulSum) {
+                sum += subArr[j];
+                contArr.push(subArr[j]);
+            } else {
+                break;
+            }
+        }
+        if (sum === vulSum) {
+            let min = Math.min(...contArr);
+            let max = Math.max(...contArr);
+            return min + max;
+        }
+    }
+}
+
+console.log(encrypWeakness());
+
