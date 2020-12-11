@@ -110,7 +110,7 @@ adapters = adapters.sort((a,b) => a - b);
 // Device built in adapter is always 3 jolts higher than highest rated adapter ; hence add one more +3 jolt adapter
 adapters.push(adapters[adapters.length - 1] + 3);
 
-let oneDiff = adapters.filter((_,i,a) => a[i+1] - a[i] === 1).length;
-let threeDiff = adapters.filter((_,i,a) => a[i+1] - a[i] === 3).length;
+const oneDiff = adapters.filter((_,i,a) => a[i+1] - a[i] === 1).length;
+const threeDiff = adapters.filter((_,i,a) => a[i+1] - a[i] === 3).length;
 
 console.log(oneDiff * threeDiff);
